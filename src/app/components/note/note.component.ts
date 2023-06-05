@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-note',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './note.component.html',
-  styleUrls: ['./note.component.scss']
+	selector: 'app-note',
+	standalone: true,
+	imports: [CommonModule],
+	templateUrl: './note.component.html'
 })
-export class NoteComponent {
-
-}
+export class NoteComponent {}
