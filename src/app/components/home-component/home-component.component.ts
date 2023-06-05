@@ -1,13 +1,20 @@
-import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
+import { MatDialogModule } from '@angular/material/dialog'
+import { EditorComponent } from '../editor/editor.component'
 import { HeaderComponent } from '../header/header.component'
+import { NoteComponent } from '../note/note.component'
 
 @Component({
 	selector: 'app-home-component',
 	standalone: true,
 	templateUrl: './home-component.component.html',
-	styleUrls: ['./home-component.component.scss'],
-	imports: [CommonModule, HeaderComponent]
+	imports: [
+		CommonModule,
+		HeaderComponent,
+		NoteComponent,
+		EditorComponent,
+		MatDialogModule
+	]
 })
-export class HomeComponentComponent {
-}
+export class HomeComponentComponent {}

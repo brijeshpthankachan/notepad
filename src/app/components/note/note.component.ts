@@ -7,4 +7,6 @@ import { Component } from '@angular/core'
 	imports: [CommonModule],
 	templateUrl: './note.component.html'
 })
-export class NoteComponent {}
+export class NoteComponent {
+	notes = ['note1', 'note2', 'note3']
+}

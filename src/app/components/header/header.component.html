@@ -1,35 +1,15 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid justify-content-">
-      <button class="bi bi-list btn btn-light navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      </button>
-
-        <a class="navbar-brand fw-bold">MY NOTES</a>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-    
-    </div>
-  </nav> -->
-
-  
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-white pt-3">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">My Notes</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse justify-content-between">
         <form class="d-flex mx-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Search" >
+          <button class="btn btn-outline-success">Search</button>
         </form>
-        <button class="btn btn-outline-dark w-md-100">Add Note<i class="bi bi-plus"></i></button>
+        <button mat-button (click)="openDialog()">Add new note</button>
       </div>
     </div>
   </nav>
-
-  
