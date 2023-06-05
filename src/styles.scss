@@ -1,13 +1,13 @@
-@import 'bootstrap/scss/bootstrap';
+@import ('node_modules/bootstrap/scss/bootstrap.scss');
+@import ('node_modules/bootstrap-icons/font/bootstrap-icons.css');
 
-
-
-html,body{
+html,
+body {
 	padding: 0;
 	margin: 0;
 }
 
-body{
+body {
 	height: 100vh;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
