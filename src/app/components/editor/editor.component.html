@@ -1,16 +1,21 @@
 <mat-dialog-content class="mat-typography">
-  <div class="d-flex px-3" >
-    <input type="text" class="form-control" style="max-width: 200px;">
-    <span >Current Date goes here</span>
-    <p>some other text</p>
-  </div>
-    
-    <!-- <input type="text" style="width: fit-content;" [(ngModel)]="value"> -->
-    <textarea name="" id="" rows="10" style="width: 100%;"></textarea>
+	<div class="d-flex px-3">
+		<input
+			type="text"
+			class="form-control"
+			style="max-width: 200px"
+			[(ngModel)]="title"
+		/>
+		<span>Current Date goes here</span>
+		<p>some other text</p>
+	</div>
 
+	<textarea name id rows="10" style="width: 100%" [(ngModel)]="note"></textarea>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Save</button>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button mat-button [mat-dialog-close]="true" (click)="saveNote()">
+		Save
+	</button>
 </mat-dialog-actions>
