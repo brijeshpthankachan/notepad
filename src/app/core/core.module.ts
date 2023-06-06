@@ -14,6 +14,6 @@ import { HighlightDirective } from '../directives/highlight.directive'
 	],
 
 	imports: [CommonModule],
-	exports: [DateRangeFilterPipe, DeleteFilterPipe]
+	exports: [DateRangeFilterPipe, DeleteFilterPipe, HighlightDirective]
 })
 export class CoreModule {}

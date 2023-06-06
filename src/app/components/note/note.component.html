@@ -27,26 +27,38 @@
 					"
 				>
 					<div
-						class="p-2"
+						appHighlight
+						class="p-3"
 						style="
-							width: 200px;
-							height: 200px;
+							width: 250px;
+							height: 310px;
 							background: rgba(18, 237, 84, 0.636);
 							margin: 10px;
 							border-radius: 10px;
-							text-align: center;
+							text-align: justify;
 						"
 					>
-						<b [textContent]="i.title"></b>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
 						<p
 							style="
-								height: 80px;
+								height: 160px;
 								overflow: hidden;
 								text-overflow: ellipsis;
 								margin-top: 10px;
 							"
 							[textContent]="i.content"
 						></p>
+						<hr />
 						<div class="d-flex justify-content-between">
 							<button
 								mat-button
@@ -109,26 +121,38 @@
 					"
 				>
 					<div
-						class="p-2"
+						appHighlight
+						class="p-3"
 						style="
-							width: 200px;
-							height: 200px;
+							width: 250px;
+							height: 310px;
 							background: rgba(18, 237, 84, 0.636);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
 						"
 					>
-						<b [textContent]="i.title"></b>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
 						<p
 							style="
-								height: 80px;
+								height: 160px;
 								overflow: hidden;
 								text-overflow: ellipsis;
 								margin-top: 10px;
 							"
 							[textContent]="i.content"
 						></p>
+						<hr />
 						<div class="d-flex justify-content-between">
 							<button
 								mat-button
@@ -191,26 +215,38 @@
 					"
 				>
 					<div
-						class="p-2"
+						appHighlight
+						class="p-3"
 						style="
-							width: 200px;
-							height: 200px;
+							width: 250px;
+							height: 310px;
 							background: rgba(18, 237, 84, 0.636);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
 						"
 					>
-						<b [textContent]="i.title"></b>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
 						<p
 							style="
-								height: 80px;
+								height: 160px;
 								overflow: hidden;
 								text-overflow: ellipsis;
 								margin-top: 10px;
 							"
 							[textContent]="i.content"
 						></p>
+						<hr />
 						<div class="d-flex justify-content-between">
 							<button
 								mat-button
@@ -264,26 +300,38 @@
 				</button>
 				<div class="p-3" *ngFor="let i of notes | async | deleteFilter">
 					<div
-						class="p-2"
+						appHighlight
+						class="p-3"
 						style="
-							width: 200px;
-							height: 200px;
+							width: 250px;
+							height: 310px;
 							background: rgba(18, 237, 84, 0.636);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
 						"
 					>
-						<b [textContent]="i.title"></b>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
 						<p
 							style="
-								height: 80px;
+								height: 160px;
 								overflow: hidden;
 								text-overflow: ellipsis;
 								margin-top: 10px;
 							"
 							[textContent]="i.content"
 						></p>
+						<hr />
 						<div class="d-flex justify-content-between">
 							<button
 								mat-button

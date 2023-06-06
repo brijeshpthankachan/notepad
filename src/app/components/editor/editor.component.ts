@@ -38,7 +38,9 @@ export class EditorComponent {
 		const newNote: INote = {
 			content: this.note.trim(),
 			id: this.data.note.id != 0 ? this.data.note.id : Date.now(),
-			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' ')).trim(),
+			title: !this.title
+				? this.note.split(' ').slice(0, 2).join(' ').trim()
+				: this.title,
 			writtenOn: new Date(),
 			isDeleted: false
 		}
