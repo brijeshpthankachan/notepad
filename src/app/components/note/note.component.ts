@@ -5,6 +5,7 @@ import { Observable } from 'rxjs'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { EditorComponent } from '../editor/editor.component'
+import { copiedNote } from 'src/app/data/Notes'
 
 @Component({
 	selector: 'app-note',
@@ -14,14 +15,17 @@ import { EditorComponent } from '../editor/editor.component'
 })
 export class NoteComponent implements OnInit {
 	notes: Observable<INote[]>
+	
+
 	constructor(
 		private readonly noteService: NoteService,
-		public dialog: MatDialog
-	) {}
+		public dialog: MatDialog,
+	) { }
+
 
 	openDialog(note: INote) {
 		this.dialog.open(EditorComponent, {
-			data: { note: note }
+			data: { note: note, editedNote: copiedNote },
 		})
 	}
 	ngOnInit(): void {
@@ -31,4 +35,10 @@ export class NoteComponent implements OnInit {
 	edit(note: INote) {
 		this.openDialog(note)
 	}
-}
+
+	copy(note: INote) {
+		copiedNote.title = note.title
+		copiedNote.content = note.content
+		console.log(copiedNote)
+	}
+}	
