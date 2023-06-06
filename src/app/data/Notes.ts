@@ -47,3 +47,11 @@ export const note: INote[] = [
 		writtenOn: new Date('2023-06-04')
 	}
 ]
+
+export const copiedNote: INote = {
+	id: 0,
+	title: '',
+	content: '',
+	writtenOn: undefined
+}
+

@@ -7,6 +7,8 @@ import { note } from '../data/Notes'
 	providedIn: 'root'
 })
 export class NoteService {
+	copiedNote: INote = null
+
 	getNotes(): Observable<INote[]> {
 		return of(note)
 	}
@@ -19,5 +21,14 @@ export class NoteService {
 		} else {
 			note.push(newNote)
 		}
+	}
+
+	copyNotes(note : INote)
+	{
+		this.copiedNote = note
+	}
+
+	pasteNote(){
+		return this.copiedNote
 	}
 }
