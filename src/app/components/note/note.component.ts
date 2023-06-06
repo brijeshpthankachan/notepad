@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
-import { copiedNote, note } from 'src/app/data/Notes'
+import { copiedNote } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
@@ -19,7 +19,7 @@ export class NoteComponent implements OnInit {
 	notes: Observable<INote[]>
 	startDate = new Date().setHours(0, 0, 0, 0)
 	endDate = new Date().setHours(23, 59, 59)
-	emptyNote:INote = {
+	emptyNote: INote = {
 		id: 0,
 		title: '',
 		content: '',
@@ -53,25 +53,15 @@ export class NoteComponent implements OnInit {
 			data: { note: note, editedNote: copiedNote }
 		})
 
-		dialogRef.afterClosed().subscribe(() => this.getNotes()
-		)
- 
+		dialogRef.afterClosed().subscribe(() => this.getNotes())
 	}
 
-	getNotes(){
-
+	getNotes() {
 		this.notes = this.noteService.getNotes()
 	}
 
 	ngOnInit(): void {
 		this.getNotes()
-		console.log(new Date(this.startDate))
-		console.log(new Date(this.endDate))
-
-		console.log(new Date(this.startOfWeek))
-		console.log(new Date(this.endOfWeek))
-		console.log(new Date(this.monthStartDate))
-		console.log(new Date(this.monthEndDate))
 	}
 
 	edit(note: INote) {
@@ -80,14 +70,18 @@ export class NoteComponent implements OnInit {
 
 	delete(note: INote) {
 		this.noteService.delete(note.id)
+		this.getNotes()
 	}
-
-	
 
 	copy(note: INote) {
 		copiedNote.title = note.title
 		copiedNote.content = note.content
 		alert('Note Copied!')
-		console.log(copiedNote)
+	}
+
+	cut(note: INote) {
+		copiedNote.title = note.title
+		copiedNote.content = note.content
+		this.delete(note)
 	}
 }

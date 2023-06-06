@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core'
 
 import { CommonModule } from '@angular/common'
 import { DateRangeFilterPipe } from '../Pipe/dateRangeFilter'
+import { DeleteFilterPipe } from '../Pipe/deleteFilter'
 
 @NgModule({
-	declarations: [DateRangeFilterPipe],
+	declarations: [DateRangeFilterPipe, DeleteFilterPipe],
 
 	imports: [CommonModule],
-	exports: [DateRangeFilterPipe]
+	exports: [DateRangeFilterPipe, DeleteFilterPipe]
 })
 export class CoreModule {}
