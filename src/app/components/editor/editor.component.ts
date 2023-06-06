@@ -19,8 +19,8 @@ export class EditorComponent {
 
 	constructor(
 		private readonly noteService: NoteService,
-		@Inject(MAT_DIALOG_DATA) public data: { note: INote, editedNote: INote },
-	) { }
+		@Inject(MAT_DIALOG_DATA) public data: { note: INote; editedNote: INote }
+	) {}
 
 	ngOnInit(): void {
 		if (this.data.note != null) {
@@ -32,10 +32,10 @@ export class EditorComponent {
 	saveNote() {
 		const note: INote = {
 			content: this.note.trim(),
-			id: this.data != null ? this.data.note.id : Date.now(),
-			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' '))
-				.trim(),
-			writtenOn: new Date()
+			id: this.data.note.content ? this.data.note.id : Date.now(),
+			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' ')).trim(),
+			writtenOn: new Date(),
+			isDeleted: false
 		}
 		console.log(note)
 

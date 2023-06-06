@@ -1,33 +1,26 @@
 <div
-    class="bg-secondary-subtle m-lg-2 m-md-2 m-sm-1 rounded"
-    style="min-height: calc(100vh - 105px)"
+	class="bg-secondary-subtle m-lg-2 m-md-2 m-sm-1 rounded"
+	style="min-height: calc(100vh - 105px)"
 >
-    <div
-        class="d-flex flex-wrap"
-        style="flex-grow: 1;"
-    >
-        <div
-            class="p-3"
-            *ngFor="let i of notes | async"
-        >
-            <div
-                class="p-2"
-                style="
+	<div class="d-flex flex-wrap" style="flex-grow: 1">
+		<div class="p-3" *ngFor="let i of notes | async">
+			<div
+				class="p-2"
+				style="
 					width: 150px;
 					height: 200px;
 					background: rgba(217, 250, 85, 0.636);
 					margin: 10px;
 					text-align: center;
 				"
-            >
-                <b [textContent]="i.title"></b>
-                <p
-                    style="height: 80px; overflow: hidden; text-overflow: ellipsis;"
-                    [textContent]="i.content"
-                ></p>
-                <button (click)="edit(i)">Edit</button>
-                <button (click)="copy(i)">Copy</button>
-            </div>
-        </div>
-    </div>
+			>
+				<b [textContent]="i.title"></b>
+				<p
+					style="height: 80px; overflow: hidden; text-overflow: ellipsis"
+					[textContent]="i.content"
+				></p>
+				<button (click)="edit(i)">edit</button>
+			</div>
+		</div>
+	</div>
 </div>

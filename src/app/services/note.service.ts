@@ -7,10 +7,14 @@ import { note } from '../data/Notes'
 	providedIn: 'root'
 })
 export class NoteService {
+	delete(id: number) {
+		const index = note.findIndex((x) => x.id === id)
+		note[index].isDeleted = true
+	}
 	copiedNote: INote = null
 
 	getNotes(): Observable<INote[]> {
-		return of(note)
+		return of(note.filter((x) => x.isDeleted === false))
 	}
 
 	addNote(newNote: INote) {
@@ -21,14 +25,14 @@ export class NoteService {
 		} else {
 			note.push(newNote)
 		}
+		console.log(note)
 	}
 
-	copyNotes(note : INote)
-	{
+	copyNotes(note: INote) {
 		this.copiedNote = note
 	}
 
-	pasteNote(){
+	pasteNote() {
 		return this.copiedNote
 	}
 }
