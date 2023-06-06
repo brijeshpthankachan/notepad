@@ -11,10 +11,8 @@ export class DateRangeFilterPipe implements PipeTransform {
 				startDate <= x.writtenOn.getTime() && x.writtenOn.getTime() <= endDate
 		)
 
-		const orderedNotes = filteredNotes.sort(
+		return filteredNotes.sort(
 			(a, b) => a.writtenOn.getTime() - b.writtenOn.getTime()
 		)
-
-		return orderedNotes
 	}
 }

@@ -1,0 +1,30 @@
+.c-card-container {
+	width: 250px;
+	height: 310px;
+	background: rgba(18, 237, 84, 0.636);
+	margin: 10px;
+	border-radius: 10px;
+	text-align: justify;
+}
+
+.card-content-p {
+	height: 160px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-top: 10px;
+}
+
+.c-card-title {
+	height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.c-card-button {
+	width: 40px;
+	height: 30px;
+}
+.card-title-color {
+	color: rgb(159, 159, 159);
+}
+

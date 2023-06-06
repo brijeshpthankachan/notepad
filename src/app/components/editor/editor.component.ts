@@ -3,7 +3,6 @@ import { Component, Inject } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog'
-import { note } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 
@@ -14,9 +13,8 @@ import { INote } from 'src/models/note'
 	templateUrl: './editor.component.html'
 })
 export class EditorComponent {
-	note = ''
-	editedNote = ''
-	title: string
+	noteContent  : string
+	noteTitle: string
 	date = new Date()
 
 	constructor(
@@ -26,8 +24,8 @@ export class EditorComponent {
 
 	ngOnInit(): void {
 		if (this.data.note != null) {
-			this.note = this.data.note.content
-			this.title = this.data.note.title
+			this.noteContent = this.data.note.content
+			this.noteTitle = this.data.note.title
 		}
 		setInterval(() => {
 			this.date = new Date()
@@ -36,27 +34,23 @@ export class EditorComponent {
 
 	saveNote() {
 		const newNote: INote = {
-			content: this.note.trim(),
+			content: this.noteContent.trim(),
 			id: this.data.note.id != 0 ? this.data.note.id : Date.now(),
-			title: !this.title
-				? this.note.split(' ').slice(0, 2).join(' ').trim()
-				: this.title,
+			title: !this.noteTitle
+				? this.noteContent.split(' ').slice(0, 2).join(' ').trim()
+				: this.noteTitle,
 			writtenOn: new Date(),
 			isDeleted: false
 		}
-		console.log(newNote)
-
 		if (newNote.content) {
 			this.noteService.addNote(newNote)
-			console.log(note)
 		}
 	}
 
 	pasteNote() {
-		console.log(this.data.editedNote)
 		if (this.data.editedNote != null) {
-			this.note = this.data.editedNote.content
-			this.title = this.data.editedNote.title
+			this.noteContent = this.data.editedNote.content
+			this.noteTitle = this.data.editedNote.title
 		}
 	}
 }

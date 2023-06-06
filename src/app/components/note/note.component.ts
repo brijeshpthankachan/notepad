@@ -8,12 +8,13 @@ import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
 import { EditorComponent } from '../editor/editor.component'
+import {CardComponent} from '../card/card.component'
 
 @Component({
 	selector: 'app-note',
 	standalone: true,
 	templateUrl: './note.component.html',
-	imports: [CommonModule, MatTabsModule, CoreModule]
+	imports: [CommonModule, MatTabsModule, CoreModule, CardComponent]
 })
 export class NoteComponent implements OnInit {
 	notes: Observable<INote[]>

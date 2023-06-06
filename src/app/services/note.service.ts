@@ -26,12 +26,4 @@ export class NoteService {
 			note.push(newNote)
 		}
 	}
-
-	copyNotes(note: INote) {
-		this.copiedNote = note
-	}
-
-	pasteNote() {
-		return this.copiedNote
-	}
 }

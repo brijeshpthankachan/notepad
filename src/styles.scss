@@ -1,5 +1,4 @@
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import 'node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import "scss/main.scss";
 
 html,
 body {
@@ -10,16 +9,4 @@ body {
 	background: black;
 	padding: 1rem;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-
-.mdc-tab-indicator {
-	margin-left: 100px;
-	margin-right: 100px;
-	width: 10% !important;
-}
-
-.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline,
-.mat-mdc-tab-link:not(.mat-mdc-tab-disabled)
-	.mdc-tab-indicator__content--underline {
-	border-color: var(--mdc-tab-indicator-active-indicator-color, #c9bfdc);
 }
