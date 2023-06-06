@@ -17,6 +17,7 @@ export class EditorComponent {
 	note = ''
 	editedNote = ''
 	title: string
+	date = new Date()
 
 	constructor(
 		private readonly noteService: NoteService,
@@ -28,13 +29,18 @@ export class EditorComponent {
 			this.note = this.data.note.content
 			this.title = this.data.note.title
 		}
+		setInterval(() => {
+			this.date = new Date()
+		}, 1000)
 	}
 
 	saveNote() {
 		const newNote: INote = {
 			content: this.note.trim(),
-			id: this.data.note.id!=0 ? this.data.note.id : Date.now(),
-			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' ')).trim(),
+			id: this.data.note.id != 0 ? this.data.note.id : Date.now(),
+			title: !this.title
+				? this.note.split(' ').slice(0, 2).join(' ').trim()
+				: this.title,
 			writtenOn: new Date(),
 			isDeleted: false
 		}

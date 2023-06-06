@@ -2,39 +2,375 @@
 	class="bg-secondary-subtle m-lg-2 m-md-2 m-sm-1 rounded"
 	style="min-height: calc(100vh - 105px)"
 >
-    <div
-        class="d-flex flex-wrap"
-        style="flex-grow: 1;"
-    >
-        <div
-            class="p-3"
-            *ngFor="let i of notes | async"
-        >
-            <div appHighlight
-                class="p-2"
-                style="
-					width: 190px;
-					height: 200px;
-					background: rgba(18, 237, 84, 0.636);
-					margin: 10px;
-                    border-radius: 10px;
-					text-align: center;
-				"
-            >
-                <b 
-                    [textContent]="i.title"
+	<mat-tab-group>
+		<mat-tab label="Todays">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-evenly"
+				style="flex-grow: 1"
+			>
+				<button
+					class="btn btn-outline-secondary"
+					style="height: 100px; width: 100px"
+					(click)="openDialog(emptyNote)"
+				>
+					New note
+					<p style="font-weight: 600" class="bi bi-file-earmark-plus"></p>
+				</button>
 
-                ></b>
-                <p
-                    style="height: 80px; overflow: hidden; text-overflow: ellipsis; margin-top: 10px;"
-                    [textContent]="i.content"
-                ></p>
-                <div class="d-flex justify-content-between">
-                    <button mat-button class="m-2 border-0 rounded-3" style="width: 40px; height: 30px;" (click)="copy(i)"><i class="bi bi-clipboard-check-fill"></i></button>
-                    <button mat-button class="m-2 border-0 rounded-3" style="width: 40px; height: 30px;" (click)="edit(i)"><i class="bi bi-pencil-fill"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button mat-button (click)="openDialog(emptyNote)">Add new note</button>
+				<div
+					class="p-3"
+					*ngFor="
+						let i of notes
+							| async
+							| dateRangeFilter : startDate : endDate
+							| deleteFilter
+					"
+				>
+					<div
+						appHighlight
+						class="p-3"
+						style="
+							width: 250px;
+							height: 310px;
+							background: rgba(18, 237, 84, 0.636);
+							margin: 10px;
+							border-radius: 10px;
+							text-align: justify;
+						"
+					>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
+						<p
+							style="
+								height: 160px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								margin-top: 10px;
+							"
+							[textContent]="i.content"
+						></p>
+						<hr />
+						<div class="d-flex justify-content-between">
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="copy(i)"
+							>
+								<i class="bi bi-clipboard-check-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="edit(i)"
+							>
+								<i class="bi bi-pencil-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="delete(i)"
+							>
+								<i class="bi bi-trash-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="cut(i)"
+							>
+								<i class="bi bi-scissors"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</mat-tab>
+
+		<mat-tab label="This Week">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-evenly"
+				style="flex-grow: 1"
+			>
+				<button
+					class="btn btn-outline-secondary"
+					style="height: 100px; width: 100px"
+					(click)="openDialog(emptyNote)"
+				>
+					New note
+					<p style="font-weight: 600" class="bi bi-file-earmark-plus"></p>
+				</button>
+				<div
+					class="p-3"
+					*ngFor="
+						let i of notes
+							| async
+							| dateRangeFilter : startOfWeek : endOfWeek
+							| deleteFilter
+					"
+				>
+					<div
+						appHighlight
+						class="p-3"
+						style="
+							width: 250px;
+							height: 310px;
+							background: rgba(18, 237, 84, 0.636);
+							margin: 10px;
+							border-radius: 10px;
+							text-align: center;
+						"
+					>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
+						<p
+							style="
+								height: 160px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								margin-top: 10px;
+							"
+							[textContent]="i.content"
+						></p>
+						<hr />
+						<div class="d-flex justify-content-between">
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="copy(i)"
+							>
+								<i class="bi bi-clipboard-check-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="edit(i)"
+							>
+								<i class="bi bi-pencil-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="delete(i)"
+							>
+								<i class="bi bi-trash-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="cut(i)"
+							>
+								<i class="bi bi-scissors"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</mat-tab>
+
+		<mat-tab label="This Month">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-evenly"
+				style="flex-grow: 1"
+			>
+				<button
+					class="btn btn-outline-secondary"
+					style="height: 100px; width: 100px"
+					(click)="openDialog(emptyNote)"
+				>
+					New note
+					<p style="font-weight: 600" class="bi bi-file-earmark-plus"></p>
+				</button>
+				<div
+					class="p-3"
+					*ngFor="
+						let i of notes
+							| async
+							| dateRangeFilter : monthStartDate : monthEndDate
+							| deleteFilter
+					"
+				>
+					<div
+						appHighlight
+						class="p-3"
+						style="
+							width: 250px;
+							height: 310px;
+							background: rgba(18, 237, 84, 0.636);
+							margin: 10px;
+							border-radius: 10px;
+							text-align: center;
+						"
+					>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
+						<p
+							style="
+								height: 160px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								margin-top: 10px;
+							"
+							[textContent]="i.content"
+						></p>
+						<hr />
+						<div class="d-flex justify-content-between">
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="copy(i)"
+							>
+								<i class="bi bi-clipboard-check-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="edit(i)"
+							>
+								<i class="bi bi-pencil-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="delete(i)"
+							>
+								<i class="bi bi-trash-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="cut(i)"
+							>
+								<i class="bi bi-scissors"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</mat-tab>
+		<mat-tab label="All">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-evenly"
+				style="flex-grow: 1"
+			>
+				<button
+					class="btn btn-outline-secondary"
+					style="height: 100px; width: 100px"
+					(click)="openDialog(emptyNote)"
+				>
+					New note
+					<p style="font-weight: 600" class="bi bi-file-earmark-plus"></p>
+				</button>
+				<div class="p-3" *ngFor="let i of notes | async | deleteFilter">
+					<div
+						appHighlight
+						class="p-3"
+						style="
+							width: 250px;
+							height: 310px;
+							background: rgba(18, 237, 84, 0.636);
+							margin: 10px;
+							border-radius: 10px;
+							text-align: center;
+						"
+					>
+						<div class="d-flex justify-content-between">
+							<b
+								style="height: 20px; overflow: hidden; text-overflow: ellipsis"
+								[textContent]="i.title.substring(0, 15)"
+							></b>
+							<span
+								style="color: rgb(159, 159, 159)"
+								[textContent]="i.writtenOn | date"
+							></span>
+						</div>
+						<hr />
+						<p
+							style="
+								height: 160px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								margin-top: 10px;
+							"
+							[textContent]="i.content"
+						></p>
+						<hr />
+						<div class="d-flex justify-content-between">
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="copy(i)"
+							>
+								<i class="bi bi-clipboard-check-fill"></i>
+							</button>
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="edit(i)"
+							>
+								<i class="bi bi-pencil-fill"></i>
+							</button>
+
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="delete(i)"
+							>
+								<i class="bi bi-trash-fill"></i>
+							</button>
+
+							<button
+								mat-button
+								class="m-2 border-0 rounded-3"
+								style="width: 40px; height: 30px"
+								(click)="cut(i)"
+							>
+								<i class="bi bi-scissors"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
 </div>

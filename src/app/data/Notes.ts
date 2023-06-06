@@ -53,7 +53,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 6,
-		title: 'Fitness Goals',
+		title: 'Fness Goals',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-04'),
@@ -61,7 +61,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 7,
-		title: 'Fitness Goals',
+		title: 'Fitness ls',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-04'),
@@ -69,7 +69,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 8,
-		title: 'Fitness Goals',
+		title: 'Fiess Goals',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-04'),
@@ -77,7 +77,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 9,
-		title: 'Fitness Goals',
+		title: 'ness Goals',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-04'),
@@ -85,7 +85,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 10,
-		title: 'Fitness Goals',
+		title: 'Fitns Goals',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-06'),
@@ -93,7 +93,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 11,
-		title: 'Fitness Goals',
+		title: 'Fitness Go',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-06'),
@@ -101,7 +101,7 @@ export const note: INote[] = [
 	},
 	{
 		id: 12,
-		title: 'Fitness Goals',
+		title: 'Fitness ',
 		content:
 			'Current weight: 70 kg\nGoal weight: 65 kg\n\nTo achieve my fitness goals, I will:\n- Follow a balanced diet with reduced calorie intake.\n- Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).\n- Drink plenty of water and avoid sugary beverages.\n- Track my progress regularly and make adjustments as needed.\n\nI aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-06'),

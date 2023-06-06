@@ -25,7 +25,6 @@ export class NoteService {
 		} else {
 			note.push(newNote)
 		}
-		console.log(note)
 	}
 
 	copyNotes(note: INote) {

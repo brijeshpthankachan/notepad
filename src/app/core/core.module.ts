@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core'
 
 import { CommonModule } from '@angular/common'
 import { DateRangeFilterPipe } from '../Pipe/dateRangeFilter'
+import { DeleteFilterPipe } from '../Pipe/deleteFilter'
 import { HighlightDirective } from '../directives/highlight.directive'
 
 @NgModule({
-	declarations: [DateRangeFilterPipe,HighlightDirective],
+	declarations: [
+		DateRangeFilterPipe,
+		DeleteFilterPipe,
+		HighlightDirective,
+		DeleteFilterPipe
+	],
 
 	imports: [CommonModule],
-	exports: [DateRangeFilterPipe,HighlightDirective]
+	exports: [DateRangeFilterPipe, DeleteFilterPipe, HighlightDirective]
 })
 export class CoreModule {}
