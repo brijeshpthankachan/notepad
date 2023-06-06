@@ -23,7 +23,7 @@
 						let i of notes
 							| async
 							| dateRangeFilter : startDate : endDate
-							| deleteFilter
+							
 					"
 				>
 					<div
@@ -32,7 +32,7 @@
 						style="
 							width: 250px;
 							height: 310px;
-							background: rgba(18, 237, 84, 0.636);
+							background: rgb(153, 243, 178);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: justify;
@@ -117,7 +117,6 @@
 						let i of notes
 							| async
 							| dateRangeFilter : startOfWeek : endOfWeek
-							| deleteFilter
 					"
 				>
 					<div
@@ -126,7 +125,7 @@
 						style="
 							width: 250px;
 							height: 310px;
-							background: rgba(18, 237, 84, 0.636);
+							background: rgb(153, 243, 178);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
@@ -211,7 +210,6 @@
 						let i of notes
 							| async
 							| dateRangeFilter : monthStartDate : monthEndDate
-							| deleteFilter
 					"
 				>
 					<div
@@ -220,7 +218,7 @@
 						style="
 							width: 250px;
 							height: 310px;
-							background: rgba(18, 237, 84, 0.636);
+							background: rgb(153, 243, 178);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
@@ -298,14 +296,14 @@
 					New note
 					<p style="font-weight: 600" class="bi bi-file-earmark-plus"></p>
 				</button>
-				<div class="p-3" *ngFor="let i of notes | async | deleteFilter">
+				<div class="p-3" *ngFor="let i of notes | async ">
 					<div
 						appHighlight
 						class="p-3"
 						style="
 							width: 250px;
 							height: 310px;
-							background: rgba(18, 237, 84, 0.636);
+							background: rgb(153, 243, 178);
 							margin: 10px;
 							border-radius: 10px;
 							text-align: center;
