@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
-import { copiedNote } from 'src/app/data/Notes'
+import { copiedNote, note } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
@@ -19,6 +19,13 @@ export class NoteComponent implements OnInit {
 	notes: Observable<INote[]>
 	startDate = new Date().setHours(0, 0, 0, 0)
 	endDate = new Date().setHours(23, 59, 59)
+	emptyNote:INote = {
+		id: 0,
+		title: '',
+		content: '',
+		writtenOn: null,
+		isDeleted: false
+	}
 	monthStartDate = new Date(
 		new Date().getFullYear(),
 		new Date().getMonth(),
@@ -42,12 +49,22 @@ export class NoteComponent implements OnInit {
 	) {}
 
 	openDialog(note: INote) {
-		this.dialog.open(EditorComponent, {
+		const dialogRef = this.dialog.open(EditorComponent, {
 			data: { note: note, editedNote: copiedNote }
 		})
+
+		dialogRef.afterClosed().subscribe(() => this.getNotes()
+		)
+ 
 	}
-	ngOnInit(): void {
+
+	getNotes(){
+
 		this.notes = this.noteService.getNotes()
+	}
+
+	ngOnInit(): void {
+		this.getNotes()
 		console.log(new Date(this.startDate))
 		console.log(new Date(this.endDate))
 
@@ -64,9 +81,13 @@ export class NoteComponent implements OnInit {
 	delete(note: INote) {
 		this.noteService.delete(note.id)
 	}
+
+	
+
 	copy(note: INote) {
 		copiedNote.title = note.title
 		copiedNote.content = note.content
+		alert('Note Copied!')
 		console.log(copiedNote)
 	}
 }
