@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog'
+import { note } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 
@@ -30,17 +31,18 @@ export class EditorComponent {
 	}
 
 	saveNote() {
-		const note: INote = {
+		const newNote: INote = {
 			content: this.note.trim(),
-			id: this.data.note.content ? this.data.note.id : Date.now(),
+			id: this.data.note.id!=0 ? this.data.note.id : Date.now(),
 			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' ')).trim(),
 			writtenOn: new Date(),
 			isDeleted: false
 		}
-		console.log(note)
+		console.log(newNote)
 
-		if (note.content) {
-			this.noteService.addNote(note)
+		if (newNote.content) {
+			this.noteService.addNote(newNote)
+			console.log(note)
 		}
 	}
 
