@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDialog } from '@angular/material/dialog'
 import { INote } from 'src/models/note'
 import { EditorComponent } from '../editor/editor.component'
+import { copiedNote } from 'src/app/data/Notes'
 
 @Component({
 	selector: 'app-header',
@@ -23,7 +24,7 @@ export class HeaderComponent {
 
 	openDialog() {
 		this.dialog.open(EditorComponent, {
-			data: { note: this.note }
+			data: { note: this.note , editedNote : copiedNote }
 		})
 	}
 }

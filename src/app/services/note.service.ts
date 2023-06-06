@@ -11,6 +11,8 @@ export class NoteService {
 		const index = note.findIndex((x) => x.id === id)
 		note[index].isDeleted = true
 	}
+	copiedNote: INote = null
+
 	getNotes(): Observable<INote[]> {
 		return of(note.filter((x) => x.isDeleted === false))
 	}
@@ -24,5 +26,13 @@ export class NoteService {
 			note.push(newNote)
 		}
 		console.log(note)
+	}
+
+	copyNotes(note: INote) {
+		this.copiedNote = note
+	}
+
+	pasteNote() {
+		return this.copiedNote
 	}
 }

@@ -108,3 +108,11 @@ export const note: INote[] = [
 		isDeleted: false
 	}
 ]
+
+export const copiedNote: INote = {
+	id: 0,
+	title: '',
+	content: '',
+	writtenOn: undefined,
+	isDeleted: false
+}

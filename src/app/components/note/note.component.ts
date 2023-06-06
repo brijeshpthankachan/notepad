@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
+import { copiedNote } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
@@ -42,7 +43,7 @@ export class NoteComponent implements OnInit {
 
 	openDialog(note: INote) {
 		this.dialog.open(EditorComponent, {
-			data: { note: note }
+			data: { note: note, editedNote: copiedNote }
 		})
 	}
 	ngOnInit(): void {
@@ -62,5 +63,10 @@ export class NoteComponent implements OnInit {
 
 	delete(note: INote) {
 		this.noteService.delete(note.id)
+	}
+	copy(note: INote) {
+		copiedNote.title = note.title
+		copiedNote.content = note.content
+		console.log(copiedNote)
 	}
 }
