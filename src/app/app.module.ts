@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { HomeComponentComponent } from './components/home-component/home-component.component'
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
 	declarations: [AppComponent],
@@ -13,7 +13,7 @@ import { HomeComponentComponent } from './components/home-component/home-compone
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		HomeComponentComponent,
+		HomeComponent,
 		BrowserAnimationsModule
 	]
 })

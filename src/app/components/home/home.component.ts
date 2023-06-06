@@ -8,7 +8,7 @@ import { NoteComponent } from '../note/note.component'
 @Component({
 	selector: 'app-home-component',
 	standalone: true,
-	templateUrl: './home-component.component.html',
+	templateUrl: './home.component.html',
 	imports: [
 		CommonModule,
 		HeaderComponent,
@@ -17,4 +17,4 @@ import { NoteComponent } from '../note/note.component'
 		MatDialogModule
 	]
 })
-export class HomeComponentComponent {}
+export class HomeComponent {}

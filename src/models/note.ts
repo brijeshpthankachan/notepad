@@ -3,4 +3,5 @@ export interface INote {
 	title: string
 	content: string
 	writtenOn: Date
+	isDeleted: boolean
 }

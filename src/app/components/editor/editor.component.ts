@@ -30,11 +30,12 @@ export class EditorComponent {
 	saveNote() {
 		const note: INote = {
 			content: this.note.trim(),
-			id: this.data != null ? this.data.note.id : Date.now(),
+			id: this.data.note.content ? this.data.note.id : Date.now(),
 			title: (this.title ?? this.note.split(' ').slice(0, 2).join(' '))
 				.trim()
 				.toLowerCase(),
-			writtenOn: new Date()
+			writtenOn: new Date(),
+			isDeleted: false
 		}
 		console.log(note)
 

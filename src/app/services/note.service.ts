@@ -7,8 +7,12 @@ import { note } from '../data/Notes'
 	providedIn: 'root'
 })
 export class NoteService {
+	delete(id: number) {
+		const index = note.findIndex((x) => x.id === id)
+		note[index].isDeleted = true
+	}
 	getNotes(): Observable<INote[]> {
-		return of(note)
+		return of(note.filter((x) => x.isDeleted === false))
 	}
 
 	addNote(newNote: INote) {
@@ -19,5 +23,6 @@ export class NoteService {
 		} else {
 			note.push(newNote)
 		}
+		console.log(note)
 	}
 }

@@ -17,7 +17,8 @@ export class HeaderComponent {
 		id: 0,
 		title: '',
 		content: '',
-		writtenOn: undefined
+		writtenOn: undefined,
+		isDeleted: false
 	}
 
 	openDialog() {
