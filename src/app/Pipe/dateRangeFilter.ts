@@ -6,13 +6,9 @@ import { INote } from 'src/models/note'
 })
 export class DateRangeFilterPipe implements PipeTransform {
 	transform(notes: INote[], startDate: number, endDate: number): INote[] {
-		const filteredNotes = notes.filter(
+		return notes.filter(
 			(x) =>
 				startDate <= x.writtenOn.getTime() && x.writtenOn.getTime() <= endDate
-		)
-
-		return filteredNotes.sort(
-			(a, b) => a.writtenOn.getTime() - b.writtenOn.getTime()
 		)
 	}
 }

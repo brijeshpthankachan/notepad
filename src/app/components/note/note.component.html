@@ -2,12 +2,13 @@
 	<mat-tab-group>
 
 		<mat-tab label="Todays">
-			<div class="d-flex flex-wrap align-items-center justify-content-evenly">
+			<div class="d-flex flex-wrap align-items-center justify-content-center">
 				<button class="btn btn-outline-secondary btn-sq-100" (click)="openDialog(emptyNote)">
 					New note
 					<i class="bi bi-file-earmark-plus"></i>
 				</button>
-				<div class="p-3" *ngFor=" let i of notes | async | dateRangeFilter : startDate : endDate | deleteFilter	">
+				<div class="p-3"
+					*ngFor=" let i of notes | async | dateRangeFilter : dateConfig.beginningOfDay : dateConfig.endOfDay | dateSort">
 					<app-card [note]="i" (copyNoteEmitter)="copy($event)" (cutNoteEmitter)="cut($event)"
 						(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
 					</app-card>
@@ -16,12 +17,9 @@
 		</mat-tab>
 
 		<mat-tab label="This Week">
-			<div class="d-flex flex-wrap align-items-center justify-content-evenly">
-				<button class="btn btn-outline-secondary btn-sq-100" (click)="openDialog(emptyNote)">
-					New note
-					<i class="bi bi-file-earmark-plus"></i>
-				</button>
-				<div class="p-3" *ngFor=" let i of notes | async | dateRangeFilter : startOfWeek : endOfWeek | deleteFilter	">
+			<div class="d-flex flex-wrap justify-content-center">
+				<div class="p-3"
+					*ngFor=" let i of notes | async | dateRangeFilter : dateConfig.beginningOfWeek : dateConfig.endOfWeek | dateSort">
 					<app-card [note]="i" (copyNoteEmitter)="copy($event)" (cutNoteEmitter)="cut($event)"
 						(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
 					</app-card>
@@ -30,12 +28,9 @@
 		</mat-tab>
 
 		<mat-tab label="This Month">
-			<div class="d-flex flex-wrap align-items-center justify-content-evenly">
-				<button class="btn btn-outline-secondary btn-sq-100" (click)="openDialog(emptyNote)">
-					New note
-					<i class="bi bi-file-earmark-plus"></i>
-				</button>
-				<div class="p-3" *ngFor=" let i of notes| async | dateRangeFilter : monthStartDate : monthEndDate | deleteFilter">
+			<div class="d-flex flex-wrap justify-content-center">
+				<div class="p-3"
+					*ngFor=" let i of notes| async | dateRangeFilter : dateConfig.beginningOfMonth : dateConfig.endOfMonth | dateSort">
 					<app-card [note]="i" (copyNoteEmitter)="copy($event)" (cutNoteEmitter)="cut($event)"
 						(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
 					</app-card>
@@ -44,12 +39,8 @@
 		</mat-tab>
 
 		<mat-tab label="All">
-			<div class="d-flex flex-wrap align-items-center justify-content-evenly">
-				<button class="btn btn-outline-secondary btn-sq-100" (click)="openDialog(emptyNote)">
-					New note
-					<i class="bi bi-file-earmark-plus"></i>
-				</button>
-				<div class="p-3" *ngFor="let i of notes | async | deleteFilter">
+			<div class="d-flex flex-wrap justify-content-center">
+				<div class="p-3" *ngFor="let i of notes | async | dateSort ">
 					<app-card [note]="i" (copyNoteEmitter)="copy($event)" (cutNoteEmitter)="cut($event)"
 						(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
 					</app-card>

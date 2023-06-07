@@ -10,9 +10,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-	<button mat-button (click)="pasteNote()">Paste</button>
-	<button mat-button mat-dialog-close>Cancel</button>
-	<button mat-button [mat-dialog-close]="true" (click)="saveNote()">
-		Save
-	</button>
+	<button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
+	<button mat-stroked-button color="accent" (click)="pasteNote()">Paste</button>
+	<button mat-stroked-button color="primary" [mat-dialog-close]="true" (click)="saveNote()">Save</button>
+
 </mat-dialog-actions>
