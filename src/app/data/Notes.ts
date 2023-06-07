@@ -96,6 +96,22 @@ export const note: INote[] = [
 			'Current weight: 70 kg  Goal weight: 65 kg    To achieve my fitness goals, I will:  - Follow a balanced diet with reduced calorie intake.  - Exercise for at least 30 minutes, **five** days a week (combination of cardio and strength training).  - Drink plenty of water and avoid sugary beverages.  - Track my progress regularly and make adjustments as needed.    I aim to reach my goal weight within three months and maintain a healthy lifestyle thereafter.',
 		writtenOn: new Date('2023-06-06'),
 		isDeleted: false
+	},
+	{
+		id: 13,
+		title: 'Data grip',
+		content:
+			'lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna',
+		writtenOn: new Date('2023-06-07'),
+		isDeleted: false
+	},
+	{
+		id: 14,
+		title: '7th sun',
+		content:
+			'lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna',
+		writtenOn: new Date('2023-06-07'),
+		isDeleted: false
 	}
 ]
 
