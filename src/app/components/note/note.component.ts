@@ -33,6 +33,10 @@ export class NoteComponent implements OnInit {
 		public readonly dateConfig: DateConfig
 	) {}
 
+	ngOnInit(): void {
+		this.getNotes()
+	}
+
 	openDialog(note: INote) {
 		const dialogRef = this.dialog.open(EditorComponent, {
 			data: { note: note, editedNote: copiedNote }
@@ -43,10 +47,6 @@ export class NoteComponent implements OnInit {
 
 	getNotes() {
 		this.notes = this.noteService.getNotes()
-	}
-
-	ngOnInit(): void {
-		this.getNotes()
 	}
 
 	edit(note: INote) {
