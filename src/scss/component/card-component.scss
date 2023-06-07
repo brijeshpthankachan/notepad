@@ -1,13 +1,19 @@
-$primary-color: rgb(153 243 178);
+$primary-colors: ('#FEFAE0', '#E9EDC9', '#FAEDCD', '#DBE4C6', '#F1DEC9', '#EEEEEE');
+
 $secondary-color: rgb(159 159 159);
+
+@function getRandomColor() {
+	$random-index: random(length($primary-colors));
+	@return nth($primary-colors, $random-index);
+  }
 
 .card-container {
 	width: 250px;
 	height: 310px;
-	background: $primary-color;
 	margin: 10px;
 	border-radius: 10px;
 	text-align: justify;
+	background: getRandomColor();
 
 	.card-content {
 		height: 160px;
@@ -26,7 +32,20 @@ $secondary-color: rgb(159 159 159);
 	}
 
 	.card-button {
-		width: 40px;
+		width: 30px;
 		height: 30px;
+		background: rgba(255, 255, 255, 0.07);
 	}
+
+	.card-button:hover {
+			background: #565555;
+			color: white;
+	}
+
 }
+
+@media (max-width: 576px) { 
+	.pad{
+		padding: 1rem 2rem 0 2rem;
+	}
+ }

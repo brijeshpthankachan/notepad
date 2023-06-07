@@ -1,20 +1,34 @@
-import { Directive, ElementRef, HostListener } from '@angular/core'
+import { Directive, ElementRef, HostListener, OnInit } from '@angular/core'
 
 @Directive({
 	selector: '[appHighlight]'
 })
-export class HighlightDirective {
+export class HighlightDirective implements OnInit {
 	constructor(private el: ElementRef) {}
+	color = '#FEFAE0'
+	colors = ['#FEFAE0','#E9EDC9','#FAEDCD','#DBE4C6','#F1DEC9','#EEEEEE']
 
-	@HostListener('mouseenter') onMouseEnter() {
-		this.highlight('rgb(153 243 150)')
+	getRandomInteger(min: number, max: number): number {
+		return Math.floor(Math.random() * (max - min + 1)) + min
 	}
-
+ 
+	ngOnInit(): void {
+		const randomNum: number = this.getRandomInteger(0, 5)
+		this.color = this.colors[randomNum]
+		this.highlight(this.color)
+	}
+	
+	@HostListener('mouseenter') onMouseEnter() {
+		this.highlight('#F9F5EB')	
+	}
+	
 	@HostListener('mouseleave') onMouseLeave() {
-		this.highlight('rgb(153 243 178)')
+		this.highlight(this.color)
 	}
 
 	private highlight(color: string) {
 		this.el.nativeElement.style.backgroundColor = color
 	}
+
 }
+
