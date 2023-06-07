@@ -1,7 +1,7 @@
 $primary-color: rgb(153, 243, 178);
 $secondary-color: rgb(159, 159, 159);
 
-.c-card-container {
+.card-container {
 	width: 250px;
 	height: 310px;
 	background: $primary-color;
@@ -9,7 +9,7 @@ $secondary-color: rgb(159, 159, 159);
 	border-radius: 10px;
 	text-align: justify;
 
-	.card-content-p {
+	.card-content {
 		height: 160px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -17,7 +17,7 @@ $secondary-color: rgb(159, 159, 159);
 		font-family: monospace;
 	}
 
-	.c-card-title {
+	.card-title {
 		height: 20px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -25,7 +25,7 @@ $secondary-color: rgb(159, 159, 159);
 		color: $secondary-color;
 	}
 
-	.c-card-button {
+	.card-button {
 		width: 40px;
 		height: 30px;
 	}

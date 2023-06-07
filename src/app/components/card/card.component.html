@@ -1,23 +1,23 @@
-<div appHighlight class="p-3 c-card-container">
+<div appHighlight class="p-3 card-container">
     <div class="d-flex justify-content-between">
-        <b [textContent]="note.title" class="c-card-title"></b>
-        <span [textContent]="note.writtenOn | date" class="card-title-color"></span>
+        <b [textContent]="note.title" class="card-title"></b>
+        <span [textContent]="note.writtenOn | date" class="text-secondary"></span>
     </div>
     <hr>
-    <p [textContent]="note.content" class="card-content-p"></p>
+    <p [textContent]="note.content" class="card-content"></p>
     <hr>
     <div>
         <div class="d-flex justify-content-between">
-            <button (click)="copyNote(note)" class="m-2 border-0 rounded-3 c-card-button">
+            <button (click)="copyNote(note)" class="m-2 border-0 rounded-3 card-button">
                 <i class="bi bi-clipboard-check-fill"></i>
             </button>
-            <button (click)="editNote(note)" class="m-2 border-0 rounded-3 c-card-button">
+            <button (click)="editNote(note)" class="m-2 border-0 rounded-3 card-button">
                 <i class="bi bi-pencil-fill"></i>
             </button>
-            <button (click)="deleteNote(note)" class="m-2 border-0 rounded-3 c-card-button">
+            <button (click)="deleteNote(note)" class="m-2 border-0 rounded-3 card-button">
                 <i class="bi bi-trash-fill"></i>
             </button>
-            <button (click)="cutNote(note)" class="m-2 border-0 rounded-3 c-card-button">
+            <button (click)="cutNote(note)" class="m-2 border-0 rounded-3 card-button">
                 <i class="bi bi-scissors"></i>
             </button>
         </div>
