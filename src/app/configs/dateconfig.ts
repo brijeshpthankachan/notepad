@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core'
 })
 export class DateConfig {
 	beginningOfDay = new Date().setHours(0, 0, 0, 0)
+
 	endOfDay = new Date().setHours(23, 59, 59)
 
 	beginningOfMonth = new Date(
