@@ -9,12 +9,6 @@ import { NoteComponent } from '../note/note.component'
 	selector: 'app-home-component',
 	standalone: true,
 	templateUrl: './home.component.html',
-	imports: [
-		CommonModule,
-		HeaderComponent,
-		NoteComponent,
-		EditorComponent,
-		MatDialogModule
-	]
+	imports: [CommonModule, HeaderComponent, NoteComponent, EditorComponent, MatDialogModule]
 })
-export class HomeComponent {}
+export class HomeComponent { }

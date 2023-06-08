@@ -7,7 +7,7 @@ export class CopyDirective {
 
 	@HostListener('click')
 	copy() {
-		let selectedText = window.getSelection().toString()
+		let selectedText = document.getSelection().toString()
 
 		if (!selectedText) {
 			selectedText = (document.getElementById('area') as HTMLInputElement).value

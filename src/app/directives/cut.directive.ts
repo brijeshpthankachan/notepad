@@ -7,7 +7,7 @@ import { Directive, HostListener, Renderer2 } from '@angular/core'
 export class CutDirective {
 
 	constructor(private renderer: Renderer2) { }
-  @HostListener('click')
+	@HostListener('click')
 	cut() {
 		const selection = document.getSelection().toString()
 		const textarea = document.getElementById('area') as HTMLTextAreaElement
@@ -21,8 +21,7 @@ export class CutDirective {
 			newText = currentText.substring(0, startPosition) + currentText.substring(endPosition)
 			textarea.value = newText
 		}
-
-		if (!selection) {
+		else {
 			navigator.clipboard.writeText(textarea.value)
 			textarea.value = ''
 		}

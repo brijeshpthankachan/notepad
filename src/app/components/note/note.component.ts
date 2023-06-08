@@ -13,13 +13,7 @@ import { EditorComponent } from '../editor/editor.component'
 	selector: 'app-note',
 	standalone: true,
 	templateUrl: './note.component.html',
-	imports: [
-		CommonModule,
-		MatTabsModule,
-		CoreModule,
-		CardComponent,
-		EditorComponent
-	]
+	imports: [CommonModule, MatTabsModule, CoreModule, CardComponent, EditorComponent]
 })
 export class NoteComponent implements OnInit {
 	$notes: Observable<INote[]>

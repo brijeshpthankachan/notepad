@@ -2,9 +2,7 @@
 	<div class="d-flex flex-wrap align-items-center justify-content-center">
 		<div class="p-3"
 			*ngFor=" let i of $notes | dateSort | async">
-			<app-card [note]="i"
-				(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
-			</app-card>
+			<app-card [note]="i" (deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)"></app-card>
 		</div>
 	</div>
 </div>

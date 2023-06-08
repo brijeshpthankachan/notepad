@@ -12,6 +12,7 @@ import { EditorComponent } from '../editor/editor.component'
 })
 export class HeaderComponent {
 	constructor(public dialog: MatDialog, private readonly noteService: NoteService) { }
+
 	openDialog() {
 		const x = this.dialog.open(EditorComponent, { data: null })
 		x.afterClosed().subscribe(() => this.noteService.emitEvent(true))
