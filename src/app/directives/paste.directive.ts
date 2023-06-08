@@ -14,7 +14,6 @@ export class PasteDirective {
 			const startPosition = textarea.selectionStart
 			const endPosition = textarea.selectionEnd
 			const currentText = textarea.value
-			console.log(currentText)
 			const newText = currentText.substring(0, startPosition) + text + currentText.substring(endPosition)
 			textarea.value = newText
 
