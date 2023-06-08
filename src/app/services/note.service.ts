@@ -23,7 +23,7 @@ export class NoteService {
    * @returns {Observable<INote[]>} - An observable emitting the array of notes.
    */
 	getNotes(): Observable<INote[]> {
-		return of([...note])
+		return of(note)
 	}
 
 	/**
