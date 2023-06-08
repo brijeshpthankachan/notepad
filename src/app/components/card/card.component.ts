@@ -11,14 +11,24 @@ import { CoreModule } from '../../core/core.module'
 })
 export class CardComponent {
 	@Input() note: INote
-	@Output() deleteNoteEmitter: EventEmitter<INote> = new EventEmitter<INote>()
-	@Output() editNoteEventEmitter: EventEmitter<INote> = new EventEmitter<INote>()
+	@Output() deleteNoteEmitter = new EventEmitter<INote>()
+	@Output() editNoteEventEmitter = new EventEmitter<INote>()
 
-	deleteNote(noteInstance: INote): void {
+	/**
+	 * Deletes a note by emitting the note instance.
+	 * @param {INote} noteInstance - The note to be deleted.
+	 * @emits deleteNoteEmitter
+	 */
+	deleteNote(noteInstance: INote) {
 		this.deleteNoteEmitter.emit(noteInstance)
 	}
 
-	editNote(noteInstance: INote): void {
+	/**
+	 * Edits a note by emitting the note instance.
+	 * @param {INote} noteInstance - The note to be edited.
+	 * @emits editNoteEventEmitter
+	 */
+	editNote(noteInstance: INote) {
 		this.editNoteEventEmitter.emit(noteInstance)
 	}
 }

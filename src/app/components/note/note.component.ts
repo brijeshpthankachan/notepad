@@ -22,7 +22,7 @@ import { EditorComponent } from '../editor/editor.component'
 	]
 })
 export class NoteComponent implements OnInit {
-	notes: Observable<INote[]>
+	$notes: Observable<INote[]>
 
 	constructor(
 		private readonly noteService: NoteService,
@@ -30,21 +30,22 @@ export class NoteComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.getNotes()
+		this.$notes = this.noteService.getNotes()
 	}
 
+	/**
+   * Opens a dialog to edit a note.
+   * @param {INote} newNote - The note to be edited.
+   */
 	openDialog(newNote: INote) {
-		console.log(newNote)
-
 		this.dialog.open(EditorComponent, { data: { note: newNote } })
 	}
 
-	getNotes() {
-		this.notes = this.noteService.getNotes()
-	}
-
+	/**
+   * Deletes a note from the note service.
+   * @param {INote} note - The note to be deleted.
+   */
 	delete(note: INote) {
-		this.noteService.delete(note.id)
-		this.getNotes()
+		this.noteService.deleteNote(note.id)
 	}
 }

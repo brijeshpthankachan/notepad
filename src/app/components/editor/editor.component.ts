@@ -26,21 +26,36 @@ export class EditorComponent {
 		}
 	}
 
+	/**
+ * Saves a note by adding it to the note service.
+ */
 	saveNote() {
+		/**
+	 * @typedef {Object} INote - Interface for a note.
+	 * @property {string} content - The content of the note.
+	 * @property {number} id - The unique identifier of the note.
+	 * @property {string} title - The title of the note.
+	 * @property {Date} writtenOn - The date the note was written on.
+	 */
+
+		/**
+	 * Represents a new note to be saved.
+	 * @type {INote}
+	 */
 		const newNote: INote = {
 			content: this.noteContent.trim(),
-			id: this.data ? this.data.note.id : Date.now(),
+			id: this.data?.note?.id || Date.now(),
 			title: this.noteTitle,
-			writtenOn: new Date(),
-
+			writtenOn: new Date()
 		}
-		console.log(this.noteContent)
-
-		console.log('hello')
-		console.log(newNote)
 
 		if (newNote.content) {
-			this.noteService.addNote(newNote)
+			/**
+		 * Adds a note to the note service.
+		 * @param {INote} note - The note to be added.
+		 */
+			this.noteService.addOrUpdateNote(newNote)
 		}
 	}
+
 }
