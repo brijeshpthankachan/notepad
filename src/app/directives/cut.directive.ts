@@ -1,10 +1,12 @@
-import { Directive, HostListener } from '@angular/core'
+import { Directive, HostListener, Renderer2 } from '@angular/core'
 
 @Directive({
 	selector: '[appCut]'
 })
 
 export class CutDirective {
+
+	constructor(private renderer: Renderer2) { }
 	@HostListener('click')
 	cut() {
 		const selection = document.getSelection()
@@ -15,5 +17,8 @@ export class CutDirective {
 		const currentText = textarea.value
 		const newText = currentText.substring(0, startPosition) + currentText.substring(endPosition)
 		textarea.value = newText
+
+		this.renderer.setProperty(textarea, 'value', newText)
+		textarea.dispatchEvent(new Event('input'))
 	}
 }

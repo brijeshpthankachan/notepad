@@ -43,12 +43,6 @@ export class NoteComponent implements OnInit {
 		this.notes = this.noteService.getNotes()
 	}
 
-	// edit(note: INote) {
-	// 	this.openDialog(note)
-	// 	console.log(note)
-
-	// }
-
 	delete(note: INote) {
 		this.noteService.delete(note.id)
 		this.getNotes()
