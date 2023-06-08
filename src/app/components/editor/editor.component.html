@@ -4,8 +4,9 @@
 			<i class="bi bi-receipt-cutoff"></i>
 			<input class="form-control mx-3" [(ngModel)]="noteTitle" placeholder="Note Title" />
 			<button appCut>cut</button>
+			<button appPaste>paste</button>
 		</div>
-		<textarea class="form-control w-100" rows="10" [(ngModel)]="noteContent"></textarea>
+		<textarea class="form-control w-100" rows="10" id="area" [(ngModel)]="noteContent"></textarea>
 	</div>
 </mat-dialog-content>
 
