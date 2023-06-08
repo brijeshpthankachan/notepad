@@ -16,4 +16,4 @@ import { HomeComponent } from './components/home/home.component'
 		BrowserAnimationsModule
 	]
 })
-export class AppModule {}
+export class AppModule { }
