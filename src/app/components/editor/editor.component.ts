@@ -29,10 +29,16 @@ export class EditorComponent {
 	saveNote() {
 		const newNote: INote = {
 			content: this.noteContent.trim(),
-			id: this.data.note.id != 0 ? this.data.note.id : Date.now(),
+			id: this.data ? this.data.note.id : Date.now(),
 			title: this.noteTitle,
-			writtenOn: new Date()
+			writtenOn: new Date(),
+
 		}
+		console.log(this.noteContent)
+
+		console.log('hello')
+		console.log(newNote)
+
 		if (newNote.content) {
 			this.noteService.addNote(newNote)
 		}
