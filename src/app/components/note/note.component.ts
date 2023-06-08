@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
-import { DateSortPipe } from 'src/app/Pipe/datesort'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
@@ -24,7 +23,6 @@ import { EditorComponent } from '../editor/editor.component'
 })
 export class NoteComponent implements OnInit {
 	$notes: Observable<INote[]>
-	sortedNotes$: Observable<INote[]>
 
 	constructor(
 		private readonly noteService: NoteService,
@@ -32,7 +30,10 @@ export class NoteComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.sortedNotes$ = new DateSortPipe().transform(this.noteService.getNotes())
+		this.$notes = this.noteService.getNotes()
+		this.noteService.myEventEmitter.subscribe(() => {
+			this.$notes = this.noteService.getNotes()
+		})
 	}
 
 	/**
@@ -49,5 +50,6 @@ export class NoteComponent implements OnInit {
    */
 	delete(note: INote) {
 		this.noteService.deleteNote(note.id)
+
 	}
 }

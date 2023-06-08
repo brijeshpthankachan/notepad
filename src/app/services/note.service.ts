@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { EventEmitter, Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
 import { INote } from 'src/models/note'
 import { note } from '../data/Notes'
@@ -7,6 +7,13 @@ import { note } from '../data/Notes'
 	providedIn: 'root'
 })
 export class NoteService {
+
+	public myEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>()
+
+	public emitEvent(data: boolean): void {
+		this.myEventEmitter.emit(data)
+	}
+
 	/**
 	 * Deletes a note by ID.
 	 * @param {number} id - The ID of the note to be deleted.
