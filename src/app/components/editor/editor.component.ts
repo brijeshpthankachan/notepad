@@ -13,44 +13,27 @@ import { INote } from 'src/models/note'
 	templateUrl: './editor.component.html'
 })
 export class EditorComponent {
-	noteContent  : string
+	noteContent: string
 	noteTitle: string
-	date = new Date()
 
-	constructor(
-		private readonly noteService: NoteService,
-		@Inject(MAT_DIALOG_DATA) public data: { note: INote; editedNote: INote }
-	) {}
+	constructor(private readonly noteService: NoteService, @Inject(MAT_DIALOG_DATA) public data: { note: INote }) { }
 
 	ngOnInit(): void {
-		if (this.data.note != null) {
+		if (this.data) {
 			this.noteContent = this.data.note.content
 			this.noteTitle = this.data.note.title
 		}
-		setInterval(() => {
-			this.date = new Date()
-		}, 1000)
 	}
 
 	saveNote() {
 		const newNote: INote = {
 			content: this.noteContent.trim(),
 			id: this.data.note.id != 0 ? this.data.note.id : Date.now(),
-			title: !this.noteTitle
-				? this.noteContent.split(' ').slice(0, 2).join(' ').trim()
-				: this.noteTitle,
-			writtenOn: new Date(),
-			isDeleted: false
+			title: this.noteTitle,
+			writtenOn: new Date()
 		}
 		if (newNote.content) {
 			this.noteService.addNote(newNote)
-		}
-	}
-
-	pasteNote() {
-		if (this.data.editedNote != null) {
-			this.noteContent = this.data.editedNote.content
-			this.noteTitle = this.data.editedNote.title
 		}
 	}
 }

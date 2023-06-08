@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
-import { DateConfig } from 'src/app/configs/dateconfig'
-import { copiedNote } from 'src/app/data/Notes'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
 import { CoreModule } from '../../core/core.module'
@@ -15,56 +13,44 @@ import { EditorComponent } from '../editor/editor.component'
 	selector: 'app-note',
 	standalone: true,
 	templateUrl: './note.component.html',
-	imports: [CommonModule, MatTabsModule, CoreModule, CardComponent]
+	imports: [
+		CommonModule,
+		MatTabsModule,
+		CoreModule,
+		CardComponent,
+		EditorComponent
+	]
 })
 export class NoteComponent implements OnInit {
 	notes: Observable<INote[]>
-	emptyNote: INote = {
-		id: 0,
-		title: '',
-		content: '',
-		writtenOn: null,
-		isDeleted: false
-	}
 
 	constructor(
 		private readonly noteService: NoteService,
-		public dialog: MatDialog,
-		public readonly dateConfig: DateConfig
-	) {}
+		public dialog: MatDialog
+	) { }
 
 	ngOnInit(): void {
 		this.getNotes()
 	}
 
-	openDialog(note: INote) {
-		const dialogRef = this.dialog.open(EditorComponent, {
-			data: { note: note, editedNote: copiedNote }
-		})
+	openDialog(newNote: INote) {
+		console.log(newNote)
 
-		dialogRef.afterClosed().subscribe(() => this.getNotes())
+		this.dialog.open(EditorComponent, { data: { note: newNote } })
 	}
 
 	getNotes() {
 		this.notes = this.noteService.getNotes()
 	}
 
-	edit(note: INote) {
-		this.openDialog(note)
-	}
+	// edit(note: INote) {
+	// 	this.openDialog(note)
+	// 	console.log(note)
+
+	// }
 
 	delete(note: INote) {
 		this.noteService.delete(note.id)
 		this.getNotes()
-	}
-
-	copy(note: INote) {
-		copiedNote.title = note.title
-		copiedNote.content = note.content
-	}
-
-	cut(note: INote) {
-		this.copy(note)
-		this.delete(note)
 	}
 }

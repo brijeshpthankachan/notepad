@@ -1,0 +1,31 @@
+ <mat-tab label="This Week">
+	<div class="d-flex flex-wrap justify-content-center">
+		<div class="p-3"
+			*ngFor=" let i of notes | async | dateRangeFilter : dateConfig.beginningOfWeek : dateConfig.endOfWeek | dateSort">
+			<app-card [note]="i"
+				(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
+			</app-card>
+		</div>
+	</div>
+</mat-tab>
+
+<mat-tab label="This Month">
+	<div class="d-flex flex-wrap justify-content-center">
+		<div class="p-3"
+			*ngFor=" let i of notes| async | dateRangeFilter : dateConfig.beginningOfMonth : dateConfig.endOfMonth | dateSort">
+			<app-card [note]="i"
+				(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
+			</app-card>
+		</div>
+	</div>
+</mat-tab>
+
+<mat-tab label="All">
+	<div class="d-flex flex-wrap justify-content-center">
+		<div class="p-3" *ngFor="let i of notes | async | dateSort ">
+			<app-card [note]="i"
+				(deleteNoteEmitter)="delete($event)" (editNoteEventEmitter)="openDialog($event)">
+			</app-card>
+		</div>
+	</div>
+</mat-tab>

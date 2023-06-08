@@ -9,12 +9,13 @@ import { note } from '../data/Notes'
 export class NoteService {
 	delete(id: number) {
 		const index = note.findIndex((x) => x.id === id)
-		note[index].isDeleted = true
+		console.log(index)
+
 	}
 	copiedNote: INote = null
 
 	getNotes(): Observable<INote[]> {
-		return of(note.filter((x) => x.isDeleted === false))
+		return of(note)
 	}
 
 	addNote(newNote: INote) {
