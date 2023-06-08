@@ -9,10 +9,8 @@ import { note } from '../data/Notes'
 export class NoteService {
 	delete(id: number) {
 		const index = note.findIndex((x) => x.id === id)
-		console.log(index)
-
+		note.splice(index, 1)
 	}
-	copiedNote: INote = null
 
 	getNotes(): Observable<INote[]> {
 		return of(note)
