@@ -2,16 +2,16 @@
 	<div>
 		<div class="d-sm-flex justify-content-between align-items-baseline py-2">
 			<i class="bi bi-receipt-cutoff"></i>
-			<input class="form-control mx-3" [(ngModel)]="noteTitle" placeholder="Note Title" />
-			<button appCut class="btn"><i class="bi bi-scissors"></i></button>
-			<button appCopy class="btn"><i class="bi bi-files"></i></button>
-			<button appPaste class="btn"><i class="bi bi-clipboard-check"></i></button>
+			<input id="note-editor-title-input" class="form-control mx-3" [(ngModel)]="noteTitle" placeholder="Note Title" />
+			<button id="note-editor-cut-button" appCut class="btn"><i class="bi bi-scissors"></i></button>
+			<button id="note-editor-copy-button" appCopy class="btn"><i class="bi bi-files"></i></button>
+			<button id="note-editor-paste-button" appPaste class="btn"><i class="bi bi-clipboard-check"></i></button>
 		</div>
 		<textarea class="form-control w-100" rows="10" id="note-content-area" [(ngModel)]="noteContent"></textarea>
 	</div>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-	<button mat-button mat-dialog-close>Cancel</button>
-	<button mat-button [mat-dialog-close]="true" (click)="saveNote()">Save</button>
+	<button id="note-editor-cancel-button" mat-button mat-dialog-close>Cancel</button>
+	<button id="note-editor-save-button" mat-button [mat-dialog-close]="true" (click)="saveNote()">Save</button>
 </mat-dialog-actions>
