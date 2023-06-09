@@ -44,7 +44,7 @@ export class NoteComponent implements OnInit {
    * Deletes a note from the note service.
    * @param {INote} note - The note to be deleted.
    */
-	delete(note: INote) {
+	deleteNote(note: INote) {
 		this.noteService.deleteNote(note.id)
 	}
 }
