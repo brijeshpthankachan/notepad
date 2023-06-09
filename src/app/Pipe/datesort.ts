@@ -3,7 +3,8 @@ import { Observable, map } from 'rxjs'
 import { INote } from 'src/models/note'
 
 @Pipe({
-	name: 'dateSort'
+	name: 'dateSort',
+	standalone: true
 })
 export class DateSortPipe implements PipeTransform {
 	transform(notes$: Observable<INote[]>): Observable<INote[]> {

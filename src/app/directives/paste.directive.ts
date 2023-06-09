@@ -1,7 +1,8 @@
 import { Directive, HostListener, Renderer2 } from '@angular/core'
 
 @Directive({
-	selector: '[appPaste]'
+	selector: '[appPaste]',
+	standalone: true
 })
 
 export class PasteDirective {

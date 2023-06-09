@@ -1,7 +1,8 @@
 import { Directive, HostListener, Renderer2 } from '@angular/core'
 
 @Directive({
-	selector: '[appCut]'
+	selector: '[appCut]',
+	standalone: true
 })
 
 export class CutDirective {
@@ -38,8 +39,8 @@ export class CutDirective {
 
 		/**
 		 * Sets the 'value' property of the textarea element to the new text.
-	     * Dispatches an 'input' event on the textarea element.
- 	    */
+		 * Dispatches an 'input' event on the textarea element.
+		  */
 		this.renderer.setProperty(textarea, 'value', newText)
 		textarea.dispatchEvent(new Event('input'))
 	}

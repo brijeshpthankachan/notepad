@@ -5,7 +5,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { Observable } from 'rxjs'
 import { NoteService } from 'src/app/services/note.service'
 import { INote } from 'src/models/note'
-import { CoreModule } from '../../core/core.module'
+import { DateSortPipe } from '../../Pipe/datesort'
 import { CardComponent } from '../card/card.component'
 import { EditorComponent } from '../editor/editor.component'
 
@@ -13,7 +13,7 @@ import { EditorComponent } from '../editor/editor.component'
 	selector: 'app-note',
 	standalone: true,
 	templateUrl: './note.component.html',
-	imports: [CommonModule, MatTabsModule, CoreModule, CardComponent, EditorComponent]
+	imports: [CommonModule, MatTabsModule, CardComponent, EditorComponent, DateSortPipe]
 })
 export class NoteComponent implements OnInit {
 	notes$: Observable<INote[]>

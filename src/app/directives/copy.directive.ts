@@ -1,7 +1,8 @@
 import { Directive, HostListener } from '@angular/core'
 
 @Directive({
-	selector: '[appCopy]'
+	selector: '[appCopy]',
+	standalone: true
 })
 
 export class CopyDirective {

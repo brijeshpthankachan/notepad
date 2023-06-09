@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common'
 import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { HighlightDirective } from 'src/app/directives/highlight.directive'
 import { INote } from '../../../models/note'
-import { CoreModule } from '../../core/core.module'
 
 @Component({
 	selector: 'app-card',
 	standalone: true,
-	imports: [CommonModule, CoreModule],
+	imports: [CommonModule, HighlightDirective],
 	templateUrl: './card.component.html'
 })
 export class CardComponent {
