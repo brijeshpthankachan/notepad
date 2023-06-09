@@ -32,6 +32,6 @@ export class HeaderComponent {
 		 * Subscribes to the afterClosed event of the dialog.
 		 * This callback is executed when the dialog is closed.
 		 */
-		dialog.afterClosed().subscribe(() => this.noteService.refresh(true))
+		dialog.afterClosed().subscribe(() => this.noteService.refresh())
 	}
 }

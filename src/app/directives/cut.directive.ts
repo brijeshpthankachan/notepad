@@ -37,9 +37,9 @@ export class CutDirective {
 		}
 
 		/**
-	  * Sets the 'value' property of the textarea element to the new text.
-	  * Dispatches an 'input' event on the textarea element.
-	  */
+		 * Sets the 'value' property of the textarea element to the new text.
+	     * Dispatches an 'input' event on the textarea element.
+ 	    */
 		this.renderer.setProperty(textarea, 'value', newText)
 		textarea.dispatchEvent(new Event('input'))
 	}

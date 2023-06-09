@@ -8,14 +8,14 @@ import { note } from '../data/Notes'
 })
 export class NoteService {
 
-	public refreshEmitter: EventEmitter<boolean> = new EventEmitter<boolean>()
+	public refreshEmitter = new EventEmitter()
 
 
 	/**
 	 * refreshes the grid after saving a note
 	 */
-	public refresh(data: boolean): void {
-		this.refreshEmitter.emit(data)
+	public refresh(): void {
+		this.refreshEmitter.emit()
 	}
 
 	/**
