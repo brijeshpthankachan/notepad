@@ -27,16 +27,16 @@ export class EditorComponent {
 	}
 
 	/**
- * Saves a note by adding it to the note service.
- */
+	* Saves a note by adding it to the note service.
+	*/
 	saveNote() {
 		/**
-	 * @typedef {Object} INote - Interface for a note.
-	 * @property {string} content - The content of the note.
-	 * @property {number} id - The unique identifier of the note.
-	 * @property {string} title - The title of the note.
-	 * @property {Date} writtenOn - The date the note was written on.
-	 */
+	   * @typedef {Object} INote - Interface for a note.
+	   * @property {string} content - The content of the note.
+	   * @property {number} id - The unique identifier of the note.
+	   * @property {string} title - The title of the note.
+	   * @property {Date} writtenOn - The date the note was written on.
+	   */
 
 		/**
 	 * Represents a new note to be saved.
@@ -51,9 +51,9 @@ export class EditorComponent {
 
 		if (newNote.content) {
 			/**
-		 * Adds a note to the note service.
-		 * @param {INote} note - The note to be added.
-		 */
+			 * Adds a note to the note service.
+			 * @param {INote} note - The note to be added.
+			 */
 			this.noteService.addOrUpdateNote(newNote)
 		}
 	}

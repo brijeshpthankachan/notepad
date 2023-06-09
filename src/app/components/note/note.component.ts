@@ -16,18 +16,20 @@ import { EditorComponent } from '../editor/editor.component'
 	imports: [CommonModule, MatTabsModule, CoreModule, CardComponent, EditorComponent]
 })
 export class NoteComponent implements OnInit {
-	$notes: Observable<INote[]>
+	notes$: Observable<INote[]>
 
-	constructor(
-		private readonly noteService: NoteService,
-		public dialog: MatDialog
-	) { }
+	constructor(private readonly noteService: NoteService, public dialog: MatDialog) { }
 
 	ngOnInit(): void {
-		this.$notes = this.noteService.getNotes()
-		this.noteService.myEventEmitter.subscribe(() => {
-			this.$notes = this.noteService.getNotes()
+		this.notes$ = this.noteService.getNotes()
+		this.noteService.refreshEmitter.subscribe(() => {
+			this.notes$ = this.noteService.getNotes()
 		})
+	}
+
+	trackByFn(index: number, item: INote): number {
+		// Return a unique identifier for each item, such as an ID property
+		return item.id
 	}
 
 	/**
@@ -44,6 +46,5 @@ export class NoteComponent implements OnInit {
    */
 	delete(note: INote) {
 		this.noteService.deleteNote(note.id)
-
 	}
 }
